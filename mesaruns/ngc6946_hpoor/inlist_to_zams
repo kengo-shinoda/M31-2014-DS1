@@ -1,0 +1,45 @@
+&star_job
+  ! see star/defaults/star_job.defaults
+
+  ! begin with a pre-main sequence model
+  create_pre_main_sequence_model = .true.
+
+  ! save a model at the end of the run
+  save_model_when_terminate = .true.
+  save_model_filename = 'zams.mod'
+
+  ! display on-screen plots
+    pgstar_flag = .false.
+
+/ ! end of star_job namelist
+
+
+&eos
+  ! eos options
+  ! see eos/defaults/eos.defaults
+
+/ ! end of eos namelist
+
+
+&kap
+  ! kap options
+
+/ ! end of kap namelist
+
+
+&controls
+    initial_mass = 17.5 ! in Msun units
+    initial_z = 0.014
+    initial_y = 0.25
+    Dutch_scaling_factor = 0.0 
+
+    stop_at_phase_ZAMS = .true.
+
+    use_superad_reduction = .false. 
+
+   ! user
+   use_other_timestep_limit = .true.
+   x_ctrl(1) = 2.e-2  !delta_lgHmass
+
+
+/ ! end of controls namelist

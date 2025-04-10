@@ -1,0 +1,46 @@
+&star_job
+  ! see star/defaults/star_job.defaults
+
+
+      load_saved_model = .true.
+      load_model_filename = 'tams.mod'
+      
+      save_model_when_terminate = .true.
+      save_model_filename = 'after_he_burn.mod'
+      required_termination_code_string = 'xa_central_lower_limit'
+      
+      set_initial_cumulative_energy_error = .true.
+      new_cumulative_energy_error = 0d0
+
+  ! display on-screen plots
+    pgstar_flag = .true.
+
+/ ! end of star_job namelist
+
+
+&eos
+  ! eos options
+  ! see eos/defaults/eos.defaults
+
+/ ! end of eos namelist
+
+
+&kap
+  ! kap options
+
+/ ! end of kap namelist
+
+
+&controls
+    Dutch_scaling_factor = 1.0
+
+    xa_central_lower_limit_species(1) = 'he4'
+    xa_central_lower_limit(1) = 1.e-5
+
+
+   ! user
+   use_other_timestep_limit = .true.
+   x_ctrl(1) = 2.e-2  !delta_lgHmass
+
+
+/ ! end of controls namelist
